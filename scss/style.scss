@@ -23,6 +23,7 @@ $blue: #75CCE8;
 $liteBlue: #A5DEE5;
 $yellow: #f7DB70;
 $pink: #EABEBF;
+$background: #bbd8db;
 
 // フォントサイズ
 @function fontSize($minFont) {
@@ -44,13 +45,13 @@ body{
   color: #333;
   font-family: 'Noto Sans JP', 'M PLUS Rounded 1c', 'Oswald', 'Prompt', sans-serif;
   line-height: 1.5;
-  background: #e3e9da;
+  background: $background;
   a {
     color: #fff;
     transition: color 0.3s;
     text-decoration: none;
     &:hover{
-      color: #333;
+      color: $purple;
       text-decoration: none;
     }
   }
@@ -69,11 +70,11 @@ header {
     height: 150px;
   }
   .header-title{
-    font-size: fontSize(25);
+    font-size: fontSize(24);
     text-align: left;
     font-family: 'M PLUS Rounded 1c';
     letter-spacing: 0.3em;
-    margin: 0 0 0 5%;
+    margin: 0 0 0 1%;
   }
   // ---ハンバーガー---
   .ham{
@@ -128,13 +129,10 @@ header {
   }
   //---ヘッダーメニュー---
   .nuvList-link{
-    color: inherit;
+    color: #333;
     font-weight: 400;
     text-transform: uppercase;//大文字
     text-decoration: none;
-    &:hover{
-      color: #39d24a;
-    }
   }
 
   .hd-nav{
@@ -157,7 +155,7 @@ header {
         text-align: center;
         border-bottom: 2px solid #333;
         &[aria-current]{
-          border-bottom: 3px solid #ff36a3;
+          border-bottom: 3px solid $purple;
         }
       }
       .nuvList-link{
@@ -182,42 +180,88 @@ header {
         padding: 1rem;
         font-size: fontSize(10);
         color: #333;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
 }
 // -----mv-----
 .mv{
-  width: 100%;
-  max-width: 1380px;
-  margin: 0 auto;
+  background: url(../img/mv-img.png);
+  background-position: center;
+  background-size: cover;
   overflow: hidden;
-  background: radial-gradient(circle at bottom, $purple, transparent 80%),
-    linear-gradient(to top, dodgerblue 0%, transparent 70%),
-    linear-gradient(to bottom, transparent, rgba($purple, 0.4) 70%),
-    $blue;
-  animation: bg 30s infinite;
-  @keyframes bg {
-    0%,
-    100% {
-      background-color: $blue;
-    }
-    25% {
-      background-color: $liteBlue;
-    }
-    50% {
-      background-color: $yellow;
-    }
-    75% {
-      background-color: $pink;
-    }
+  //SP
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    height: 100vh;
   }
+  //PC
+  @media screen and (min-width: 769px) {
+    width: 100%;
+    max-width: 1380px;
+    height: 60vh;
+    margin: 0 auto;
+    }
+  // グラデーションにする場合
+  // background: radial-gradient(circle at bottom, $purple, transparent 80%),
+  //   linear-gradient(to top, dodgerblue 0%, transparent 70%),
+  //   linear-gradient(to bottom, transparent, rgba($purple, 0.4) 70%),
+  //   $blue;
+  // animation: bg 30s infinite;
+  // @keyframes bg {
+  //   0%,
+  //   100% {
+  //     background-color: $blue;
+  //   }
+  //   25% {
+  //     background-color: $liteBlue;
+  //   }
+  //   50% {
+  //     background-color: $yellow;
+  //   }
+  //   75% {
+  //     background-color: $pink;
+  //   }
+  // }
+  //写真にする場合
+
   .mv-inner{
     width: 100%;
     text-align: center;
     font-size: fontSize(20);
     margin: 0 auto;
     padding: 60px 0;
+    p{
+      box-decoration-break: clone;
+      background-color: rgba(117,204,232,0.5);
+      line-height: 2.2;
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 50px 3%;
+      //SP
+      @media screen and (max-width: 768px) {
+        width: 80%;
+      }
+      //PC
+      @media screen and (min-width: 769px) {
+        width: 90%;
+      }
+      span{
+        text-shadow: 7px 4px 1px rgba(0, 0, 0, 0.2);
+        letter-spacing: 1rem;
+      }
+      //SP
+      @media screen and (max-width: 768px) {
+        font-size: fontSize(35);
+      }
+      //PC
+      @media screen and (min-width: 769px) {
+        font-size: fontSize(30);
+      }
+    }
   }
 }
 // -----container-----
@@ -229,16 +273,78 @@ header {
     max-width: 1380px;
     margin: 20px auto;
     .section-title{
+      display: inline-block;
+      padding: 0 1.5rem;
+      margin: 0 0 1.5rem 10px;
       font-size: fontSize(20);
       font-family: 'M PLUS Rounded 1c';
-      margin: 0 0 16px 0;
+      color: #f3f3f3;
+      text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+      border-bottom: 5px solid $pink;
     }
     .grid-box{
       display: grid;
-      background: $pink;
       grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
       gap: 10px;
       padding: 10px;
+      .grid-item{
+        background: #f3f3f3;
+        box-shadow: 5px 5px 6px -2px rgba(0, 0, 0, 0.5);
+        padding: 5%;
+        .card-title{
+          font-size: fontSize(20);
+          color: #333;
+          font-family: 'M PLUS Rounded 1c';
+          text-align: center;
+          padding: 0.5rem;
+          border: 5px dotted $pink;
+          border-radius: 50px;
+          margin: 0 0 5% 0;
+        }
+      }
+    }
+  }
+}
+
+
+// -----footer-----
+.footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  .ft-nav{
+    padding: 1rem;
+    .ft-nuvList{
+      display: flex;
+      justify-content: space-between;
+      margin: 0 5%;
+      .ft-nuvItem{
+        width: calc(100% - 5%);
+        text-align: center;
+        .ft-nuvLink{
+          color: #333;
+        }
+      }
+    }
+  }
+  //SP
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+  //PC
+  @media screen and (min-width: 769px) {
+    margin: 40px 0 0 0;
+    .ft-nav{
+      .ft-nuvList{
+        .ft-nuvItem{
+          font-size: fontSize(12);
+          .ft-nuvLink{
+            &:hover {
+                text-decoration: underline;
+              }
+          }
+        }
+      }
     }
   }
 }

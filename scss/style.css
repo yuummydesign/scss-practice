@@ -21,7 +21,7 @@ body {
   color: #333;
   font-family: "Noto Sans JP", "M PLUS Rounded 1c", "Oswald", "Prompt", sans-serif;
   line-height: 1.5;
-  background: #e3e9da;
+  background: #bbd8db;
   margin: 0;
 }
 body a {
@@ -30,7 +30,7 @@ body a {
   text-decoration: none;
 }
 body a:hover {
-  color: #333;
+  color: #D6A3DC;
   text-decoration: none;
 }
 
@@ -49,11 +49,11 @@ header {
   }
 }
 header .header-title {
-  font-size: clamp(25px, 5.208vw, 53px);
+  font-size: clamp(24px, 5vw, 51px);
   text-align: left;
   font-family: "M PLUS Rounded 1c";
   letter-spacing: 0.3em;
-  margin: 0 0 0 5%;
+  margin: 0 0 0 1%;
 }
 header .ham {
   display: flex;
@@ -103,13 +103,10 @@ header .ham[aria-expanded=true] .ham-line::after {
   transform: rotate(-45deg);
 }
 header .nuvList-link {
-  color: inherit;
+  color: #333;
   font-weight: 400;
   text-transform: uppercase;
   text-decoration: none;
-}
-header .nuvList-link:hover {
-  color: #39d24a;
 }
 @media screen and (max-width: 768px) {
   header .hd-nav {
@@ -132,7 +129,7 @@ header .nuvList-link:hover {
     border-bottom: 2px solid #333;
   }
   header .hd-nav .nuvList-item[aria-current] {
-    border-bottom: 3px solid #ff36a3;
+    border-bottom: 3px solid #D6A3DC;
   }
   header .hd-nav .nuvList-link {
     width: 60vw;
@@ -158,43 +155,29 @@ header .nuvList-link:hover {
     font-size: clamp(10px, 2.083vw, 21px);
     color: #333;
   }
+  header .hd-nav .nuvList-link:hover {
+    text-decoration: underline;
+  }
 }
 
 .mv {
-  width: 100%;
-  max-width: 1380px;
-  margin: 0 auto;
+  background: url(../img/mv-img.png);
+  background-position: center;
+  background-size: cover;
   overflow: hidden;
-  background: radial-gradient(circle at bottom, #D6A3DC, transparent 80%), linear-gradient(to top, dodgerblue 0%, transparent 70%), linear-gradient(to bottom, transparent, rgba(214, 163, 220, 0.4) 70%), #75CCE8;
-  -webkit-animation: bg 30s infinite;
-          animation: bg 30s infinite;
 }
-@-webkit-keyframes bg {
-  0%, 100% {
-    background-color: #75CCE8;
-  }
-  25% {
-    background-color: #A5DEE5;
-  }
-  50% {
-    background-color: #f7DB70;
-  }
-  75% {
-    background-color: #EABEBF;
+@media screen and (max-width: 768px) {
+  .mv {
+    width: 100%;
+    height: 100vh;
   }
 }
-@keyframes bg {
-  0%, 100% {
-    background-color: #75CCE8;
-  }
-  25% {
-    background-color: #A5DEE5;
-  }
-  50% {
-    background-color: #f7DB70;
-  }
-  75% {
-    background-color: #EABEBF;
+@media screen and (min-width: 769px) {
+  .mv {
+    width: 100%;
+    max-width: 1380px;
+    height: 60vh;
+    margin: 0 auto;
   }
 }
 .mv .mv-inner {
@@ -203,6 +186,39 @@ header .nuvList-link:hover {
   font-size: clamp(20px, 4.167vw, 43px);
   margin: 0 auto;
   padding: 60px 0;
+}
+.mv .mv-inner p {
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+  background-color: rgba(117, 204, 232, 0.5);
+  line-height: 2.2;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 50px 3%;
+}
+@media screen and (max-width: 768px) {
+  .mv .mv-inner p {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 769px) {
+  .mv .mv-inner p {
+    width: 90%;
+  }
+}
+.mv .mv-inner p span {
+  text-shadow: 7px 4px 1px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .mv .mv-inner p {
+    font-size: clamp(35px, 7.292vw, 74px);
+  }
+}
+@media screen and (min-width: 769px) {
+  .mv .mv-inner p {
+    font-size: clamp(30px, 6.25vw, 64px);
+  }
 }
 
 .container {
@@ -215,15 +231,71 @@ header .nuvList-link:hover {
   margin: 20px auto;
 }
 .container .section .section-title {
+  display: inline-block;
+  padding: 0 1.5rem;
+  margin: 0 0 1.5rem 10px;
   font-size: clamp(20px, 4.167vw, 43px);
   font-family: "M PLUS Rounded 1c";
-  margin: 0 0 16px 0;
+  color: #f3f3f3;
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  border-bottom: 5px solid #EABEBF;
 }
 .container .section .grid-box {
   display: grid;
-  background: #EABEBF;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 10px;
   padding: 10px;
+}
+.container .section .grid-box .grid-item {
+  background: #f3f3f3;
+  box-shadow: 5px 5px 6px -2px rgba(0, 0, 0, 0.5);
+  padding: 5%;
+}
+.container .section .grid-box .grid-item .card-title {
+  font-size: clamp(20px, 4.167vw, 43px);
+  color: #333;
+  font-family: "M PLUS Rounded 1c";
+  text-align: center;
+  padding: 0.5rem;
+  border: 5px dotted #EABEBF;
+  border-radius: 50px;
+  margin: 0 0 5% 0;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.footer .ft-nav {
+  padding: 1rem;
+}
+.footer .ft-nav .ft-nuvList {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5%;
+}
+.footer .ft-nav .ft-nuvList .ft-nuvItem {
+  width: 95%;
+  text-align: center;
+}
+.footer .ft-nav .ft-nuvList .ft-nuvItem .ft-nuvLink {
+  color: #333;
+}
+@media screen and (max-width: 768px) {
+  .footer {
+    display: none;
+  }
+}
+@media screen and (min-width: 769px) {
+  .footer {
+    margin: 40px 0 0 0;
+  }
+  .footer .ft-nav .ft-nuvList .ft-nuvItem {
+    font-size: clamp(12px, 2.5vw, 26px);
+  }
+  .footer .ft-nav .ft-nuvList .ft-nuvItem .ft-nuvLink:hover {
+    text-decoration: underline;
+  }
 }
 /*# sourceMappingURL=style.css.map */
